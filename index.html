@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting UI</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+<body style="font-family: 'Inter', sans-serif;">
+
+<div class="bg-gray-900 min-h-screen">
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+      <div class="flex lg:flex-1">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">Your Company</span>
+          <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+        </a>
+      </div>
+      <div class="flex lg:hidden">
+        <button type="button" command="show-modal" commandfor="mobile-menu" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
+          <span class="sr-only">Open main menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <a href="#" class="text-sm/6 font-semibold text-white">Product</a>
+        <a href="#" class="text-sm/6 font-semibold text-white">Features</a>
+        <a href="#" class="text-sm/6 font-semibold text-white">Marketplace</a>
+        <a href="#" class="text-sm/6 font-semibold text-white">Company</a>
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </nav>
+    <el-dialog>
+      <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
+        <div tabindex="0" class="fixed inset-0 focus:outline-none">
+          <el-dialog-panel class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+            <div class="flex items-center justify-between">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="" class="h-8 w-auto" />
+              </a>
+              <button type="button" command="close" commandfor="mobile-menu" class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                <span class="sr-only">Close menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-white/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Product</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Features</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Marketplace</a>
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5">Company</a>
+                </div>
+                <div class="py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5">Log in</a>
+                </div>
+              </div>
+            </div>
+          </el-dialog-panel>
+        </div>
+      </dialog>
+    </el-dialog>
+  </header>
+
+  <div class="relative isolate px-6 pt-14 lg:px-8">
+    <div aria-hidden="true" class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
+      <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75"></div>
+    </div>
+    <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+      <div class="hidden sm:mb-8 sm:flex sm:justify-center">
+        <div class="relative rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+          Announcing our next Head of House Winner. <a href="#" class="font-semibold text-indigo-400"><span aria-hidden="true" class="absolute inset-0"></span>Read more <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+      <div class="text-center">
+        <h1 style="font-family: 'Playfair Display', serif;" class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">Hackathon 3.0 Head of House</h1>
+        <p class="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
+
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-4">
+
+          <!-- Name selector dropdown -->
+          
+
+        
+
+          <!-- Name input, placed right next to the dropdown -->
+          <div class="inline-block">
+            <input
+              type="text"
+              id="voter-name"
+              name="voter-name"
+              placeholder="Enter your name"
+              class="rounded-full bg-white/10 px-5 py-3 text-sm font-medium text-white placeholder:text-gray-400 ring-1 ring-inset ring-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-colors"
+            />
+          </div>
+
+          <el-dropdown class="inline-block">
+            <button class="inline-flex items-center justify-center gap-x-2 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-white ring-1 ring-inset ring-white/10 hover:bg-white/20 transition-colors">
+              Candidates
+              <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="size-5 text-gray-400">
+                <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+              </svg>
+            </button>
+
+            <el-menu anchor="bottom" popover class="w-56 origin-top rounded-lg bg-gray-800 outline-1 -outline-offset-1 outline-white/10 shadow-xl transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
+              <div class="divide-y divide-white/5 py-1">
+                <a href="#" class="flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
+                  <span>Augustine</span>
+                </a>
+                <a href="#" class="flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
+                  <span>Kosisochukwu</span>
+                </a>
+              </div>
+            </el-menu>
+          </el-dropdown>
+
+        </div>
+      </div>
+    </div>
+    <div aria-hidden="true" class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
+      <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75"></div>
+    </div>
+  </div>
+
+  <!-- Check Result trigger, now bottom-left of the UI -->
+  <button command="show-modal" commandfor="drawer" class="fixed bottom-6 left-6 z-40 inline-flex items-center justify-center rounded-full bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-2xl hover:bg-indigo-400 transition-colors">
+    Check Result
+  </button>
+
+  <!-- Live results card, bottom right -->
+  <div class="fixed bottom-6 right-6 z-40 w-72 rounded-xl bg-gray-800/90 backdrop-blur ring-1 ring-white/10 shadow-2xl p-5">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xs font-semibold uppercase tracking-widest text-gray-400">Live Results</h3>
+    </div>
+    <ul class="space-y-4">
+      <li>
+        <div class="flex items-center justify-between text-sm mb-1">
+          <span class="font-medium text-white">Augustine</span>
+          <span class="font-semibold text-indigo-400">20</span>
+        </div>
+        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+          <div class="h-full bg-indigo-500 rounded-full" style="width: 40%"></div>
+        </div>
+      </li>
+      <li>
+        <div class="flex items-center justify-between text-sm mb-1">
+          <span class="font-medium text-white">Kosisochukwu</span>
+          <span class="font-semibold text-indigo-400">30</span>
+        </div>
+        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+          <div class="h-full bg-indigo-500 rounded-full" style="width: 60%"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- Centered result modal -->
+<el-dialog>
+  <dialog id="drawer" aria-labelledby="drawer-title" class="fixed inset-0 size-auto max-h-none max-w-none overflow-hidden bg-transparent not-open:hidden backdrop:bg-transparent">
+    <el-dialog-backdrop class="fixed inset-0 bg-gray-500/75 transition-opacity duration-300 ease-out data-closed:opacity-0"></el-dialog-backdrop>
+
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+      <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+        <el-dialog-panel class="relative w-full max-w-md transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all duration-300 ease-out data-closed:opacity-0 data-closed:scale-95">
+          <div class="px-6 py-6">
+            <div class="flex items-start justify-between">
+              <h2 id="drawer-title" class="text-lg font-semibold text-gray-900">Election Results</h2>
+              <button type="button" command="close" commandfor="drawer" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                <span class="sr-only">Close panel</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                  <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="mt-6">
+              <ul role="list" class="-my-6 divide-y divide-gray-200">
+                <li class="flex py-6">
+                  <div class="size-20 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <img src="https://res.cloudinary.com/dykhctgak/image/upload/v1785338161/male_u8f2wa.webp" alt="Photo of candidate Augustine." class="size-full object-cover" />
+                  </div>
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>Augustine</h3>
+                        <p class="ml-4">20 votes</p>
+                      </div>
+                      <p class="mt-1 text-sm text-gray-500">Male</p>
+                    </div>
+                  </div>
+                </li>
+                <li class="flex py-6">
+                  <div class="size-20 shrink-0 overflow-hidden rounded-md border border-gray-200">
+                    <img src="https://res.cloudinary.com/dykhctgak/image/upload/v1785338161/female_m9gjai.webp" alt="Photo of candidate Kosisochukwu." class="size-full object-cover" />
+                  </div>
+                  <div class="ml-4 flex flex-1 flex-col">
+                    <div>
+                      <div class="flex justify-between text-base font-medium text-gray-900">
+                        <h3>Kosisochukwu</h3>
+                        <p class="ml-4">30 votes</p>
+                      </div>
+                      <p class="mt-1 text-sm text-gray-500">Female</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </el-dialog-panel>
+      </div>
+    </div>
+  </dialog>
+</el-dialog>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
+</html>
