@@ -6,6 +6,7 @@
     <title>Voting UI</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -117,11 +118,11 @@
 
             <el-menu anchor="bottom" popover class="w-56 origin-top rounded-lg bg-gray-800 outline-1 -outline-offset-1 outline-white/10 shadow-xl transition transition-discrete [--anchor-gap:--spacing(2)] data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
               <div class="divide-y divide-white/5 py-1">
-                <a href="#" class="flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
-                  <span>Augustine</span>
+                <a href="#" data-candidate="Lilian" class="candidate-option flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
+                  <span>Lilian</span>
                 </a>
-                <a href="#" class="flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
-                  <span>Kosisochukwu</span>
+                <a href="#" data-candidate="Victor" class="candidate-option flex items-center justify-between px-4 py-3 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white focus:bg-white/5 focus:text-white focus:outline-hidden">
+                  <span>Victor</span>
                 </a>
               </div>
             </el-menu>
@@ -148,20 +149,20 @@
     <ul class="space-y-4">
       <li>
         <div class="flex items-center justify-between text-sm mb-1">
-          <span class="font-medium text-white">Augustine</span>
-          <span class="font-semibold text-indigo-400">20</span>
+          <span class="font-medium text-white">Lilian</span>
+          <span id="count-lilian" class="font-semibold text-indigo-400">0</span>
         </div>
         <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-          <div class="h-full bg-indigo-500 rounded-full" style="width: 40%"></div>
+          <div id="bar-lilian" class="h-full bg-indigo-500 rounded-full" style="width: 40%"></div>
         </div>
       </li>
       <li>
         <div class="flex items-center justify-between text-sm mb-1">
-          <span class="font-medium text-white">Kosisochukwu</span>
-          <span class="font-semibold text-indigo-400">30</span>
+          <span class="font-medium text-white">Victor</span>
+          <span id="count-victor" class="font-semibold text-indigo-400">0</span>
         </div>
         <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-          <div class="h-full bg-indigo-500 rounded-full" style="width: 60%"></div>
+          <div id="bar-victor" class="h-full bg-indigo-500 rounded-full" style="width: 60%"></div>
         </div>
       </li>
     </ul>
@@ -180,6 +181,7 @@
           <div class="px-6 py-6">
             <div class="flex items-start justify-between">
               <h2 id="drawer-title" class="text-lg font-semibold text-gray-900">Election Results</h2>
+              <p id="winner-text" class="mt-2 text-sm font-semibold text-indigo-600">No votes yet</p>
               <button type="button" command="close" commandfor="drawer" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
                 <span class="sr-only">Close panel</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
@@ -197,8 +199,8 @@
                   <div class="ml-4 flex flex-1 flex-col">
                     <div>
                       <div class="flex justify-between text-base font-medium text-gray-900">
-                        <h3>Augustine</h3>
-                        <p class="ml-4">20 votes</p>
+                        <h3>Victor</h3>
+                        <p id="modal-count-victor" class="ml-4">0 votes</p>
                       </div>
                       <p class="mt-1 text-sm text-gray-500">Male</p>
                     </div>
@@ -211,8 +213,8 @@
                   <div class="ml-4 flex flex-1 flex-col">
                     <div>
                       <div class="flex justify-between text-base font-medium text-gray-900">
-                        <h3>Kosisochukwu</h3>
-                        <p class="ml-4">30 votes</p>
+                        <h3>Lilian</h3>
+                        <p id="modal-count-lilian" class="ml-4">0 votes</p>
                       </div>
                       <p class="mt-1 text-sm text-gray-500">Female</p>
                     </div>
